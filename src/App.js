@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Order from "./pages/Order";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
+import 'swiper/css';
 
 function App() {
   return (
