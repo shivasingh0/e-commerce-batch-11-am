@@ -8,6 +8,7 @@ import Order from "./pages/Order";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 import 'swiper/swiper-bundle.css';
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/orders" element={<Order />} />
         <Route path="/login" element={<Login />} />

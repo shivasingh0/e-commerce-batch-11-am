@@ -11,18 +11,18 @@ const Contact = () => {
   function sendMail(e) {
     e.preventDefault();
     console.log(name);
-    let Email;
+    // let Email;
 
-    Email?.send({
+    window.Email.send({
       // Host: "smtp.elasticemail.com",
       // Username: "deadshotshiva@gmail.com",
       // Password: "166A953F46C909DF4D36F5F49E15AC582BC8",
       SecureToken: "065c6d54-cab7-4499-94ab-8595325a1b49",
-      To: "shiva2003rajawat@gmail.com",
+      To: "deadshotshiva@gmail.com",
       From: "deadshotshiva@gmail.com",
       Subject: "This is the test mail!",
       Body: `Hii, This mail is only for testing purpose... <br> <hr> Name: ${name} <br> <hr> Email: ${userEmail} <br> <hr> Number: ${number} <br> <hr> Message: ${message}`,
-    }).then((message) => console.log(message));
+    }).then((message) => alert(message));
   }
 
   return (

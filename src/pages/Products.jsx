@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Products = () => {
   const [productsData, setProductsData] = useState([]);
   const [productPrice, setProductPrice] = useState(0);
   const [productTitle, setProductTitle] = useState("");
   const [productRating, setProductRating] = useState("");
-  const location = useLocation();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    setProductsData(location.state);
-  }, []);
-  // console.log(productsData);
+  // products Api fetch
+  const apiData = async () => {
+    const response = await fetch("https://fakestoreapi.com/products");
+    const data = await response.json();
+    setProductsData(data);
+  };
 
+  // handle navigate
+  const handleNavigate = () => {
+    productsData.map((item, index) => {
+      navigate(`/products/${item.id}`, { state: productsData });
+      console.log("productsData", productsData);
+    });
+  };
+
+  // Filter data
   const filterData = () => {
     productsData.filter((item) => {
       // console.log(item);
@@ -25,6 +36,10 @@ const Products = () => {
       }
     });
   };
+
+  useEffect(() => {
+    apiData();
+  }, []);
 
   return (
     <>
@@ -85,9 +100,12 @@ const Products = () => {
               </p>
             </div>
             <div className="flex gap-[120px] pt-2">
-              <div className="border-2 py-2 px-4 font-semibold rounded-xl bg-slate-200">
-                Price: {item?.price}
-              </div>
+              <button
+                onClick={handleNavigate}
+                className="border-2 py-2 px-4 font-semibold rounded-xl bg-slate-200"
+              >
+                View Details
+              </button>
               <button className="bg-blue-950 py-2 px-4 text-white font-bold rounded-xl hover:bg-blue-900 hover:scale-105 transition-all">
                 Buy Now
               </button>

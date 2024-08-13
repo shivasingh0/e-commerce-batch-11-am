@@ -8,7 +8,7 @@ const Card = () => {
   const navigate = useNavigate();
 
   const handleProducts = () => {
-    navigate("/products", { state: data });
+    navigate("/products");
   };
 
   // fatch product api
