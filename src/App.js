@@ -4,11 +4,11 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
-import Order from "./pages/Order";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 import 'swiper/swiper-bundle.css';
 import ProductDetails from "./pages/ProductDetails";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/orders" element={<Order />} />
+        <Route path="/cart" element={<Cart/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

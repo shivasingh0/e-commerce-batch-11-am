@@ -43,7 +43,7 @@ const Navbar = () => {
             <Link to={"/contact"}>Contact us</Link>
           </li>
           <li className=" cursor-pointer hover:scale-105 transition-all hover:underline">
-            <Link to={"/orders"}>Orders</Link>
+            <Link to={"/cart"}>Cart</Link>
           </li>
         </ul>
         <div className="flex gap-10">
