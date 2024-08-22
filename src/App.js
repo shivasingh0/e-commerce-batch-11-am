@@ -9,6 +9,8 @@ import Signup from "./pages/auth/Signup";
 import 'swiper/swiper-bundle.css';
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
+import PrivateRoute from "./routes/PrivateRoute";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -18,7 +20,13 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/cart" element={<Cart/>} />
+        {/* <Route path="/cart" element={<Cart/>} /> */}
+        <Route path="/cart" element={<PrivateRoute >
+          <Cart />
+        </PrivateRoute>} />
+        <Route path="/profile" element={<PrivateRoute >
+          <Profile />
+        </PrivateRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

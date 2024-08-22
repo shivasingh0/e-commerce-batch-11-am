@@ -18,10 +18,14 @@ const Login = () => {
         }
       );
       console.log(res.data.userdata);
+
+      const resData = await JSON.stringify(res.data.userdata)
+
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", resData);
       toast.success("User logged in successfully!");
-      setEmail("");
-      setPassword("");
+       window.location.assign('/');
+      
     } catch (error) {
       toast.error("Something went wrong");
       console.log(error.message);

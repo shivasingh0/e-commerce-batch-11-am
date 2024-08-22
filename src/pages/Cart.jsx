@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import CartTable from "../components/CartTable";
 
 const Cart = () => {
   return (
-    <div>Cart</div>
-  )
-}
+    <>
+      <CartTable />
+    </>
+  );
+};
 
-export default Cart
+export default Cart;

@@ -8,6 +8,14 @@ import {
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const token = localStorage.getItem("token");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
+
   return (
     <>
       <div className="p-5 flex justify-between">
@@ -47,22 +55,29 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="flex gap-10">
-          <Link to={"/login"}>
-            <button
-              className="bg-blue-500 hover:bg-blue-700 transition-all text-white font-bold py-
+          {token ? (
+            <>
+              <button
+                className="bg-blue-500 hover:bg-blue-700 transition-all text-white font-bold py-
         2 px-4 rounded"
-            >
-              Login
-            </button>
-          </Link>
-          <Link to={"/signup"}>
-            <button
-              className="border-blue-500 border-2 transition-all hover:bg-blue-700 text-white font-bold py-
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+              <li className="list-none cursor-pointer hover:scale-105 transition-all hover:underline">
+                <Link to={"/profile"}>Profile</Link>
+              </li>
+            </>
+          ) : (
+            <Link to={"/login"}>
+              <button
+                className="bg-blue-500 hover:bg-blue-700 transition-all text-white font-bold py-
         2 px-4 rounded"
-            >
-              Signup
-            </button>
-          </Link>
+              >
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </>
