@@ -4,11 +4,14 @@ import { CartContext } from "./CartContext";
 const Provider = ({children}) => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = () => {
-    // Add item to cart
-    setCart([...cart]);
-    console.log(cart);
+  const addToCart = (data) => {
+    console.log(JSON.stringify(data));
     
+    // Add item to cart
+    setCart((previousData)=>[...previousData, data]);
+    // console.log(cart);
+
+    localStorage.setItem("cart", JSON.stringify(cart))
   };
 
   return (

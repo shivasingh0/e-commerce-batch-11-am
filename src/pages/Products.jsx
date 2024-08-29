@@ -5,6 +5,7 @@ import { CartContext } from "../context/CartContext";
 const Products = () => {
   const [productsData, setProductsData] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  
   const [productPrice, setProductPrice] = useState(0);
   const [productTitle, setProductTitle] = useState("");
   const [productRating, setProductRating] = useState("");

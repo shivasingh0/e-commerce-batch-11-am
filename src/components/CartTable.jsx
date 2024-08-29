@@ -1,6 +1,10 @@
 import React from "react";
 
-const CartTable = () => {
+const CartTable = (prop) => {
+  console.log(prop.cart);
+
+  const data = prop.cart;
+
   return (
     <>
       <div className="flex flex-wrap -mx-3 mb-5">
@@ -21,41 +25,45 @@ const CartTable = () => {
                         <th className="pb-3 text-start min-w-[100px]">Title</th>
                         <th className="pb-3 text-start min-w-[100px]">Price</th>
                         <th className="pb-3 text-start min-w-[100px]">
-                          Total Product
+                          Category
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="border-b border-dashed last:border-b-0">
-                        <td className="p-3 pl-0">
-                          <div className="flex items-center">
-                            <div className="relative inline-block shrink-0 rounded-2xl me-3">
-                              1
+                      {data.map((item, index) => (
+                        <tr
+                          key={index}
+                          className="border-b border-dashed last:border-b-0"
+                        >
+                          <td className="p-3 pl-0">
+                            <div className="flex items-center">
+                              <div className="relative inline-block shrink-0 rounded-2xl me-3">
+                                {index + 1}
+                              </div>
                             </div>
-                          </div>
-                        </td>
-                        <td className="p-3 pl-0">
-                          <div className="flex flex-col justify-start">
-                            <a
-                              href="javascript:void(0)"
-                              className="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary"
-                            >
-                              {" "}
-                              Social Media API{" "}
-                            </a>
-                          </div>
-                        </td>
-                        <td className="p-3 pr-0 text-start">
-                          <span className="font-semibold text-light-inverse text-md/normal">
-                            Olivia Cambell
-                          </span>
-                        </td>
-                        <td className="p-3 pr-0 text-start">
-                          <span className="font-semibold text-light-inverse text-md/normal">
-                            Olivia Cambell
-                          </span>
-                        </td>
-                      </tr>
+                          </td>
+                          <td className="p-3 pl-0">
+                            <div className="flex flex-col justify-start">
+                              <a
+                                href="javascript:void(0)"
+                                className="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary"
+                              >
+                                {item.title}
+                              </a>
+                            </div>
+                          </td>
+                          <td className="p-3 pr-0 text-start">
+                            <span className="font-semibold text-light-inverse text-md/normal">
+                              {item.price}
+                            </span>
+                          </td>
+                          <td className="p-3 pr-0 text-start">
+                            <span className="font-semibold text-light-inverse text-md/normal">
+                              {item.category}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
